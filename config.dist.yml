@@ -1,2 +1,11 @@
 debug: false
 bootstrap: []
+
+domains:
+udb-app-test.uitdatabank.be
+www.uitdatabank.be
+localhost:9999
+
+mailjet:
+  key: key
+  secret: S3c®3t
