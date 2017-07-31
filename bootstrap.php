@@ -2,6 +2,7 @@
 
 use CultuurNet\MailMicroservice\ContactLists\ContactLists;
 use DerAlex\Silex\YamlConfigServiceProvider;
+use JDesrosiers\Silex\Provider\CorsServiceProvider;
 use Mailjet\Client;
 use Silex\Application;
 
@@ -11,6 +12,14 @@ if (!isset($appConfigLocation)) {
     $appConfigLocation =  __DIR__;
 }
 $app->register(new YamlConfigServiceProvider($appConfigLocation . '/config.yml'));
+
+$allowed_domains = implode(' ',$app['config']['domains']);
+
+$app->register(new CorsServiceProvider(), [
+    "cors.allowOrigin" =>  $allowed_domains,
+]);
+
+
 
 /**
  * Turn debug on or off.

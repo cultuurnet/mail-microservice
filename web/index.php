@@ -9,11 +9,15 @@ use Silex\Provider\ServiceControllerServiceProvider;
 /** @var Application $app */
 $app = require __DIR__ . '/../bootstrap.php';
 
+$app["cors-enabled"]($app);
+
 /**
  * Allow to use services as controllers.
  */
 $app->register(new ServiceControllerServiceProvider());
 
 $app->mount('/', new ContactListsControllerProvider());
+
+$app["cors-enabled"]($app);
 
 $app->run();

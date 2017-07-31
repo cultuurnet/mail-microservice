@@ -2,6 +2,7 @@
 
 namespace CultuurNet\MailMicroservice\ContactLists;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use ValueObjects\Number\Integer;
 use ValueObjects\Web\EmailAddress;
@@ -23,23 +24,24 @@ class ContactListsController
     }
 
     /**
+     * @param Request $request
      * @param string $email
      * @param string $mailinglistid
      * @return string
      */
-    public function get($email, $mailinglistid)
+    public function get(Request $request, $email, $mailinglistid)
     {
         $emailAddress = new EmailAddress($email);
         $mId = new Integer($mailinglistid);
         $response = $this->contactLists->manageContact($emailAddress, $mId);
         if ($response->success()) {
             return new Response(
-                'OK Get',
+                'OK',
                 Response::HTTP_OK
             );
         } else {
             return new Response(
-                'Bad Request Get',
+                'Bad Request',
                 Response::HTTP_BAD_REQUEST
             );
         }
@@ -57,12 +59,12 @@ class ContactListsController
         $response = $this->contactLists->manageContact($emailAddress, $mId);
         if ($response->success()) {
             return new Response(
-                'OK Put',
+                'OK',
                 Response::HTTP_OK
             );
         } else {
             return new Response(
-                'Bad Request Put',
+                'Bad Request',
                 Response::HTTP_BAD_REQUEST
             );
         }

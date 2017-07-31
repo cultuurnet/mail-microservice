@@ -7,7 +7,6 @@ use Silex\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
 
-
 class ContactListsControllerProvider implements ControllerProviderInterface
 {
     /**
@@ -25,7 +24,7 @@ class ContactListsControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get(
-            '//{email}/{mailinglistid}',
+            '/{email}/{mailinglistid}',
             'mms.contactlists_controller:get'
         );
 
@@ -33,8 +32,6 @@ class ContactListsControllerProvider implements ControllerProviderInterface
             '/{email}/{mailinglistid}',
             'mms.contactlists_controller:put'
         );
-
-        $controllers->put('/');
 
         return $controllers;
     }
