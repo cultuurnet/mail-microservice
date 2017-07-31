@@ -1,6 +1,6 @@
 {
-    "name": "vendor/package",
-    "description": "Brief description of this Silex application",
+    "name": "cultuurnet/mail-micro-service",
+    "description": "service to interact with mailjet",
     "type": "project",
     "license": "Apache-2.0",
     "authors": [],
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Vendor\\Package\\": "src/"
+            "CultuurNet\\MailMicroservice\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vendor\\Package\\": "tests/"
+            "CultuurNet\\MailMicroservice\\": "tests/"
         }
     },
     "minimum-stability": "dev",
