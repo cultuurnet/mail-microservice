@@ -22,20 +22,17 @@ class ContactLists implements ContactListsInterface
      */
     public function manageContact(EmailAddress $emailAddress, IntegerLiteral $mailingListId)
     {
-        //$apiKey = '8c919521a1e67368a2f66882ce39d3e0';
-        //$apiSecret = '3565201b534d0d46f1f01e88d899475b';
-
-        //$mailJetClient = new Client($apiKey, $apiSecret);
-
         $body = [
             'Email' => $emailAddress->toNative(),
             'Action' => "addforce",
         ];
 
+        // @codingStandardsIgnoreStart
         $response = $this->mailJetClient->post(
             Resources::$ContactslistManagecontact,
             ['id' => $mailingListId->toNative(), 'body' => $body]
         );
+        // @codingStandardsIgnoreEnd
         if ($response->success()) {
             var_dump($response->getData());
         } else {
