@@ -27,6 +27,7 @@ class ContactLists implements ContactListsInterface
             'Action' => "addforce",
         ];
 
+        // the casing used by the MailJet API causes Warnings
         // @codingStandardsIgnoreStart
         $response = $this->mailJetClient->post(
             Resources::$ContactslistManagecontact,

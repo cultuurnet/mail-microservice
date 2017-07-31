@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CultuurNet\\MailMicroservice\\": "src/"
+            "CultuurNet\\MailMicroservice\\": ["src/", "app/"]
         }
     },
     "autoload-dev": {

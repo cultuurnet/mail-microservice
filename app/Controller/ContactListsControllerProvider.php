@@ -16,7 +16,7 @@ class ContactListsControllerProvider implements ControllerProviderInterface
     {
         $app['mms.contactlists_controller'] = $app->share(
             function (Application $app) {
-                return new ContactListsController();
+                return new ContactListsController($app['mms.contact_lists']);
             }
         );
 
@@ -24,7 +24,12 @@ class ContactListsControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get(
-            '/{eventCdbid}',
+            '/',
+            'mms.contactlists_controller:get'
+        );
+
+        $controllers->put(
+            '/{email}/{mailinglistid}',
             'mms.contactlists_controller:get'
         );
 
