@@ -4,6 +4,7 @@ namespace CultuurNet\MailMicroservice\ContactLists;
 
 use Mailjet\Client;
 use Mailjet\Resources;
+use Mailjet\Response;
 use ValueObjects\Number\Integer as IntegerLiteral;
 use ValueObjects\Web\EmailAddress;
 
@@ -18,7 +19,7 @@ class ContactLists implements ContactListsInterface
      * Starts the parser
      * @param EmailAddress $emailAddress
      * @param IntegerLiteral $mailingListId
-     * @return bool
+     * @return Response
      */
     public function manageContact(EmailAddress $emailAddress, IntegerLiteral $mailingListId)
     {
@@ -33,12 +34,8 @@ class ContactLists implements ContactListsInterface
             Resources::$ContactslistManagecontact,
             ['id' => $mailingListId->toNative(), 'body' => $body]
         );
-        // @codingStandardsIgnoreEnd
-        if ($response->success()) {
-            var_dump($response->getData());
-        } else {
-            var_dump($response->getStatus());
-        }
+
+        return $response;
     }
 
     /**

@@ -3,9 +3,10 @@
 namespace CultuurNet\MailMicroservice\Controller;
 
 use CultuurNet\MailMicroservice\ContactLists\ContactListsController;
+use Silex\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
-use Silex\ControllerProviderInterface;
+
 
 class ContactListsControllerProvider implements ControllerProviderInterface
 {
@@ -24,13 +25,13 @@ class ContactListsControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get(
-            '/',
+            '//{email}/{mailinglistid}',
             'mms.contactlists_controller:get'
         );
 
         $controllers->put(
             '/{email}/{mailinglistid}',
-            'mms.contactlists_controller:get'
+            'mms.contactlists_controller:put'
         );
 
         $controllers->put('/');

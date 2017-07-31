@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use ValueObjects\Number\Integer as IntegerLiteral;
 use ValueObjects\Web\EmailAddress;
+use Mailjet\Response;
 
 class MailCommand extends Command
 {
@@ -51,9 +52,15 @@ class MailCommand extends Command
         $email = new EmailAddress($input->getOption('email'));
         $mailingListId = IntegerLiteral::fromNative($input->getOption('mailingListId'));
 
-        $this->contactLists->manageContact(
+        $response = $this->contactLists->manageContact(
             $email,
             $mailingListId
         );
+
+        if ($response->success()) {
+            var_dump($response);
+        } else {
+            var_dump($response);
+        }
     }
 }
