@@ -3,7 +3,7 @@
 namespace CultuurNet\MailMicroservice\Controller;
 
 use CultuurNet\MailMicroservice\ContactLists\ContactListsController;
-use Silex\ControllerProviderInterface;
+use Silex\Api\ControllerProviderInterface;
 use Silex\Application;
 use Silex\ControllerCollection;
 
@@ -14,11 +14,9 @@ class ContactListsControllerProvider implements ControllerProviderInterface
      */
     public function connect(Application $app)
     {
-        $app['mms.contactlists_controller'] = $app->share(
-            function (Application $app) {
-                return new ContactListsController($app['mms.contact_lists']);
-            }
-        );
+        $app['mms.contactlists_controller'] = function (Application $app) {
+            return new ContactListsController($app['mms.contact_lists']);
+        };
 
         /* @var ControllerCollection $controllers */
         $controllers = $app['controllers_factory'];

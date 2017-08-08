@@ -5,13 +5,13 @@
     "license": "Apache-2.0",
     "authors": [],
     "require": {
-        "silex/silex": "~1.3",
-        "deralex/yaml-config-service-provider": "~1.0",
-        "knplabs/console-service-provider": "~1.0",
+        "silex/silex": "~2.0",
+        "reva2/config-service-provider": "~2.0",
+        "knplabs/console-service-provider": "~2.0",
         "monolog/monolog": "~1.11",
         "cultuurnet/valueobjects": "~3.0",
         "mailjet/mailjet-apiv3-php": "~1.2",
-        "jdesrosiers/silex-cors-provider": "0.4.0"
+        "jdesrosiers/silex-cors-provider": "~1.4"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.7",
