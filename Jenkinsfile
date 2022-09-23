@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         PIPELINE_VERSION = build.pipelineVersion()
-        REPOSITORY_NAME  = 'uitdatabank-movie-api-fetcher'
+        REPOSITORY_NAME  = 'uitdatabank-newsletter-api'
     }
 
     stages {
