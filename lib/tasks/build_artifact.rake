@@ -8,7 +8,7 @@ task :build_artifact do |task|
   vendor         = 'publiq VZW'
   maintainer     = 'Infra publiq <infra@publiq.be>'
   license        = 'Apache-2.0'
-  description    = 'UiTDatabank newsletter subscription API'
+  description    = 'UiTdatabank newsletter subscription API'
   source         = 'https://github.com/cultuurnet/mail-microservice'
 
   FileUtils.mkdir_p('pkg')
